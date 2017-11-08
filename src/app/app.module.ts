@@ -10,6 +10,9 @@ import { SliderComponent } from './slider/slider.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ForgetComponent } from './forget/forget.component';
+import { ProfileComponent } from './caurosel/profile.component';
+import { ListingComponent } from './caurosel/listing.component';
+import { RegGuard } from './registration/reg.guard';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,15 @@ import { ForgetComponent } from './forget/forget.component';
     SliderComponent,
     LoginComponent,
     RegistrationComponent,
-    ForgetComponent
+    ForgetComponent,
+    ProfileComponent,
+    ListingComponent
   ],
   imports: [
     BrowserModule,
     AppRouting
   ],
-  providers: [BackgroundService, ForegroundService],
+  providers: [BackgroundService, ForegroundService, RegGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

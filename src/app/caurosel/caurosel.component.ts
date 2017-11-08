@@ -20,7 +20,13 @@ export class CauroselComponent implements OnInit {
   ngOnInit() {
     this.back.subscribeDate(dtEm => this.dt = dtEm.dt);
     this.nm = this.actRt.snapshot.params['usNm'];
-    this.actRt.paramMap.subscribe(map => this.nm = map.get('usNm'));
+    this.actRt.paramMap.subscribe(
+      map => this.nm = map.get('usNm')
+    );
+
+    this.actRt.root.queryParams.subscribe(
+      params => this.nm += `page ${params['page']}`
+    );
   }
 
   changeData(usNm) {

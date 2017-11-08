@@ -17,6 +17,10 @@ export class LoginComponent implements OnInit {
 
   doLogin(usNm, pass) {
     // http
-    this.router.navigate(['dash', usNm]);
+    this.router.navigate(['dash', usNm], {
+      queryParams: {
+        page: 10
+      }
+    });
   }
 }
