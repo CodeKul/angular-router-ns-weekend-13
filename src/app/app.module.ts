@@ -3,6 +3,7 @@ import { ForegroundService } from './foreground.service';
 import { BackgroundService } from './background.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CauroselComponent } from './caurosel/caurosel.component';
@@ -27,7 +28,8 @@ import { RegGuard } from './registration/reg.guard';
   ],
   imports: [
     BrowserModule,
-    AppRouting
+    AppRouting,
+    FormsModule
   ],
   providers: [BackgroundService, ForegroundService, RegGuard],
   bootstrap: [AppComponent]
