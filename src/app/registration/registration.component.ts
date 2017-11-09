@@ -9,9 +9,9 @@ import { NgForm } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
 
   frmDt = {
-    usNm: 'sg',
-    eml: 'sg',
-    pass: 's'
+    usNm: '',
+    eml: '',
+    pass: ''
   };
   constructor() { }
 
@@ -19,6 +19,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit(frm: NgForm) {
-    console.log(this.frmDt);
+    console.log(frm);
   }
 }

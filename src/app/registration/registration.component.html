@@ -12,8 +12,10 @@
           name="usNm" 
           placeholder="" 
           class="input-xlarge"
-          [(ngModel)]="frmDt.usNm">
-        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+          [(ngModel)]="frmDt.usNm"
+          required
+          #un="ngModel">
+        <p class="help-block" *ngIf="!un.valid">Username can contain any letters or numbers, without spaces</p>
       </div>
     </div>
 
@@ -26,8 +28,11 @@
           name="eml" 
           placeholder="" 
           class="input-xlarge"
-          [(ngModel)]="frmDt.eml">
-        <p class="help-block">Please provide your E-mail</p>
+          [(ngModel)]="frmDt.eml"
+          required
+          #em="ngModel"
+          pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"> {{em.valid}}
+        <p class="help-block" *ngIf="!em.valid">Please provide your E-mail</p>
       </div>
     </div>
 
@@ -40,15 +45,17 @@
           name="pass" 
           placeholder="" 
           class="input-xlarge"
-          [(ngModel)]="frmDt.pass">
-        <p class="help-block">Password should be at least 4 characters</p>
+          [(ngModel)]="frmDt.pass"
+          [required]="em.valid"
+          #ps="ngModel"> 
+        <p class="help-block" *ngIf="!ps.valid">Password should be at least 4 characters</p>
       </div>
     </div>
 
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-        <button type="submit" class="btn btn-success">Register</button>
+        <button type="submit" class="btn btn-success" [disabled]="!frm.valid">Register</button>
       </div>
     </div>
   </fieldset>
