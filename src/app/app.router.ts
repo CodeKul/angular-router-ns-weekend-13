@@ -1,3 +1,4 @@
+import { RegDataDrivenComponent } from './reg-data-driven/reg-data-driven.component';
 import { ListingComponent } from './caurosel/listing.component';
 import { ProfileComponent } from './caurosel/profile.component';
 import { ForgetComponent } from './forget/forget.component';
@@ -15,6 +16,7 @@ const dashRoutes: Routes = [
 const routes: Routes = [
     { path: '', component: LoginComponent },
     { path: 'reg', component: RegistrationComponent },
+    { path: 'regDd', component: RegDataDrivenComponent },
     { path: 'dash/:usNm', component: CauroselComponent, children: dashRoutes, canActivate: [RegGuard] },
     { path: 'forget/:usNm', component: ForgetComponent },
     { path: 'dash', redirectTo: 'dash/sample' },

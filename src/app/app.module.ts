@@ -3,7 +3,7 @@ import { ForegroundService } from './foreground.service';
 import { BackgroundService } from './background.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CauroselComponent } from './caurosel/caurosel.component';
@@ -14,6 +14,7 @@ import { ForgetComponent } from './forget/forget.component';
 import { ProfileComponent } from './caurosel/profile.component';
 import { ListingComponent } from './caurosel/listing.component';
 import { RegGuard } from './registration/reg.guard';
+import { RegDataDrivenComponent } from './reg-data-driven/reg-data-driven.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +25,14 @@ import { RegGuard } from './registration/reg.guard';
     RegistrationComponent,
     ForgetComponent,
     ProfileComponent,
-    ListingComponent
+    ListingComponent,
+    RegDataDrivenComponent
   ],
   imports: [
     BrowserModule,
     AppRouting,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [BackgroundService, ForegroundService, RegGuard],
   bootstrap: [AppComponent]
