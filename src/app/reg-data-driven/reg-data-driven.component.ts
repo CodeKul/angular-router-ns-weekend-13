@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidatorFn, FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import {
+  AsyncValidatorFn,
+  ValidatorFn,
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+  ValidationErrors,
+  FormArray,
+  FormControl
+} from '@angular/forms';
 
 @Component({
   selector: 'app-reg-data-driven',
@@ -18,9 +28,11 @@ export class RegDataDrivenComponent implements OnInit {
         // tslint:disable-next-line:max-line-length
         // tslint:disable-next-line:quotemark
         Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-      ]
-      )],
-      pass: ['', Validators.compose([Validators.required, this.valiFn, this.valiFn8])]
+      ]), this.asyncFn],
+      pass: ['', Validators.compose([Validators.required, this.valiFn, this.valiFn8])],
+      arr: fb.array([
+        fb.control(''), fb.control('')
+      ])
     });
   }
 
@@ -42,7 +54,21 @@ export class RegDataDrivenComponent implements OnInit {
     return { len: 'Length should be 8' };
   }
 
+  asyncFn: AsyncValidatorFn = (cntrl: AbstractControl): Promise<ValidationErrors | null> => {
+    return new Promise((res, rej) => {
+      setTimeout(() => res(null), 1500);
+    });
+  }
+
   onSubmit() {
     console.log(this.fg);
+  }
+
+  addCntrls() {
+    (this.fg.controls.arr as FormArray).push(new FormControl(''));
+  }
+
+  delCntrl() {
+
   }
 }

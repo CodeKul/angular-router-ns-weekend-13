@@ -1,4 +1,4 @@
-<form class="form-horizontal" novalidate [formGroup]="fg" (ngSubmit)="onSubmit()" >
+<form class="form-horizontal" novalidate [formGroup]="fg" (ngSubmit)="onSubmit()">
   <fieldset>
     <div id="legend">
       <legend class="">Register Using Reactive Forms</legend>
@@ -7,11 +7,7 @@
       <!-- Username -->
       <label class="control-label" for="username">Username</label>
       <div class="controls">
-        <input 
-          type="text" 
-          formControlName="usNm" 
-          placeholder="" 
-          class="input-xlarge">
+        <input type="text" formControlName="usNm" placeholder="" class="input-xlarge">
         <p class="help-block" *ngIf="!fg.controls.usNm.valid">Username can contain any letters or numbers, without spaces</p>
       </div>
     </div>
@@ -20,12 +16,8 @@
       <!-- E-mail -->
       <label class="control-label" for="email">E-mail</label>
       <div class="controls">
-        <input 
-          type="text" 
-          formControlName="eml" 
-          placeholder="" 
-          class="input-xlarge"> 
-          
+        <input type="text" formControlName="eml" placeholder="" class="input-xlarge">
+
         <p class="help-block" *ngIf="!fg.controls.eml.valid">Please provide your E-mail</p>
       </div>
     </div>
@@ -34,14 +26,10 @@
       <!-- Password-->
       <label class="control-label" for="password">Password</label>
       <div class="controls">
-        <input 
-          type="password" 
-          formControlName="pass" 
-          placeholder="" 
-          class="input-xlarge"> 
-          <div *ngIf="fg.controls.pass.dirty"> 
+        <input type="password" formControlName="pass" placeholder="" class="input-xlarge">
+        <div *ngIf="fg.controls.pass.dirty">
           <p class="help-block" *ngIf="!fg.controls.pass.valid">{{fg.controls.pass.errors.len}}</p>
-        <p class="help-block" *ngIf="!fg.controls.pass.valid">{{fg.controls.pass.errors.ers}}</p>
+          <p class="help-block" *ngIf="!fg.controls.pass.valid">{{fg.controls.pass.errors.ers}}</p>
         </div>
       </div>
     </div>
@@ -52,5 +40,17 @@
         <button type="submit" class="btn btn-success" [disabled]="!fg.valid">Register</button>
       </div>
     </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <input type="button" class="btn btn-primary" value="Add New" (click)="addCntrls()">
+      </div>
+      <div class="controls" formArrayName="arr">
+        <div *ngFor="let cntr of fg.controls.arr.controls; let ind = index;">
+          <input type="text" [formControlName]="ind"/>
+        </div>
+      </div>
+    </div>
+
   </fieldset>
 </form>
