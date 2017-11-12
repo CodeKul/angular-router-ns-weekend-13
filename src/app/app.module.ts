@@ -15,6 +15,7 @@ import { ProfileComponent } from './caurosel/profile.component';
 import { ListingComponent } from './caurosel/listing.component';
 import { RegGuard } from './registration/reg.guard';
 import { RegDataDrivenComponent } from './reg-data-driven/reg-data-driven.component';
+import { ObservablesComponent } from './observables/observables.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RegDataDrivenComponent } from './reg-data-driven/reg-data-driven.compon
     ForgetComponent,
     ProfileComponent,
     ListingComponent,
-    RegDataDrivenComponent
+    RegDataDrivenComponent,
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,
