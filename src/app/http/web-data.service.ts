@@ -11,11 +11,11 @@ export class WebDataService {
   ) { }
 
   getData(zipCode): Observable<ArrayBuffer> {
-    return this.http.get(`http://api.postcodes.io/postcodes/${zipCode}`).catch(this.errHndlr);
+    return this.http.get(`https://digital-shelter-153912.firebaseio.com/morning.json`).catch(this.errHndlr);
   }
 
   postData() {
-    return this.http.post('http://localhost:9669/postDt', {
+    return this.http.post('https://digital-shelter-153912.firebaseio.com/morning.json', {
       nm: 'android',
       cty: 'pune'
     });

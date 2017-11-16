@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Pipes</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {{dt | date:"dd MMM yyyy, hh:mm"}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {{tech | uppercase | slice:"0":"2"}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {{cost | currency:"Rs"}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    {{tech | custom:6}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <input type="text" [(ngModel)]="nm" placeholder="Search">
+    <input type="text"  placeholder="Add New" #nwNm>
+    <input type="button" value="New" (click)="addIt(nwNm.value)" class="btn btn-info">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul>
+      <li *ngFor="let n of (names | filter:nm)">{{n}}</li>
+    </ul>
+  </div>
+</div>

@@ -19,6 +19,9 @@ import { RegDataDrivenComponent } from './reg-data-driven/reg-data-driven.compon
 import { ObservablesComponent } from './observables/observables.component';
 import { HttpComponent } from './http/http.component';
 import { WebDataService } from './http/web-data.service';
+import { PipesComponent } from './pipes/pipes.component';
+import { CustomPipe } from './custom.pipe';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { WebDataService } from './http/web-data.service';
     ListingComponent,
     RegDataDrivenComponent,
     ObservablesComponent,
-    HttpComponent
+    HttpComponent,
+    PipesComponent,
+    CustomPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

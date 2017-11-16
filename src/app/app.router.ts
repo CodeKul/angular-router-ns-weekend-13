@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RegGuard } from './registration/reg.guard';
 import { HttpComponent } from './http/http.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 const dashRoutes: Routes = [
   { path: 'profile', component: ProfileComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'forget/:usNm', component: ForgetComponent },
   { path: 'obs', component: ObservablesComponent },
   { path: 'http', component: HttpComponent },
+  { path: 'pipes', component: PipesComponent },
   { path: 'dash', redirectTo: 'dash/sample' },
   { path: '**', redirectTo: '' }
 ];
