@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12 jumbotron">
+    <p>Country {{country}}</p>
+    <p>Lat - {{lat}}</p>
+    <p>Lng - {{lng}}</p>
+    <p>Constituency - {{consti}}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <input type="text" #zip>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <input type="button" value="Okay" (click)="showGet(zip.value)">
+  </div>
+</div>

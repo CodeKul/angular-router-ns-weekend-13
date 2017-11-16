@@ -4,6 +4,7 @@ import { BackgroundService } from './background.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CauroselComponent } from './caurosel/caurosel.component';
@@ -16,6 +17,8 @@ import { ListingComponent } from './caurosel/listing.component';
 import { RegGuard } from './registration/reg.guard';
 import { RegDataDrivenComponent } from './reg-data-driven/reg-data-driven.component';
 import { ObservablesComponent } from './observables/observables.component';
+import { HttpComponent } from './http/http.component';
+import { WebDataService } from './http/web-data.service';
 
 @NgModule({
   declarations: [
@@ -28,15 +31,22 @@ import { ObservablesComponent } from './observables/observables.component';
     ProfileComponent,
     ListingComponent,
     RegDataDrivenComponent,
-    ObservablesComponent
+    ObservablesComponent,
+    HttpComponent
   ],
   imports: [
     BrowserModule,
     AppRouting,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [BackgroundService, ForegroundService, RegGuard],
+  providers: [
+    BackgroundService,
+    ForegroundService,
+    RegGuard,
+    WebDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
